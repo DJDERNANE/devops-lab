@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-deployment
+  labels:
+    app: devops
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devops
+  template:
+    metadata:
+      labels:
+        app: devops
+    spec:
+      containers:
+      - name: devops
+        image: djilalidernane/devops
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: "50m"
+          limits:
+            cpu: "100m"
